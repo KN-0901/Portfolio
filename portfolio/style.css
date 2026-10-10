@@ -1,0 +1,309 @@
+/* ==========================================
+   1. GLOBAL RESET & ANTI-JUMP SIDEWAYS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: scroll;
+    background-color: #0b0c10;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0b0c10;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. TOP NAVIGATION HEADER 
+   ========================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6rem;
+    background-color: #000000;
+    border-bottom: 1px solid #1f2833;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px !important; /
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+    align-items: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    width: 150px;
+    height: 42px;
+    line-height: 40px;
+    border: 1px solid #444444; 
+    font-weight: 500;
+    font-size: 0.95rem;
+    background-color: #111111;
+    display: inline-block;
+    text-align: center;
+}
+
+nav a:hover, nav a.active {
+    border-color: #ffffff;
+    background-color: #222222;
+}
+
+/* ==========================================
+   3. UNIFIED LAYOUT CONTAINERS
+   ========================================== */
+main {
+    margin-top: 90px !important; 
+    width: 100%;
+}
+
+
+.split-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.page-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+.content-p {
+    font-size: 1.15rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+/* White Action Buttons */
+.btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.9rem 2.8rem;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #c5c6c7;
+}
+
+/* ==========================================
+   4. HOME PAGE HERO (RIGHT FRAMED silhouette)
+   ========================================== */
+.hero-section {
+    margin-top: 0 !important;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') no-repeat right 20% top / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6rem;
+}
+
+.badge {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    width: max-content;
+}
+
+.hero-section h1 {
+    font-size: 4.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-section p {
+    max-width: 520px;
+    font-size: 1.15rem;
+    color: #cccccc;
+}
+
+/* ==========================================
+   5. SERVICES BLOCK SPECIFICS
+   ========================================== */
+.services-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.service-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.service-item p {
+    color: #cccccc;
+    font-size: 1.05rem;
+}
+
+.services-divider {
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+/* ==========================================
+   6. PORTFOLIO COMPACT GRID WITH HOVER HIGHLIGHT
+   ========================================== */
+.gallery-wrapper {
+    max-width: 1100px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 6rem 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+}
+
+.gallery-card {
+    background-color: #1f2833;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #2f3e46;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: scale(1.04);
+    border-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   7. CONTACT BOX PRESENTATION OVERRIDES
+   ========================================== */
+.contact-hero {
+    margin-top: 0 !important;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(rgba(11, 12, 16, 0.75), rgba(11, 12, 16, 0.85)), url('contact-page-image.jpg') no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem 4rem 2rem;
+}
+
+.contact-hero h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* CONTACT BACKDROP SIZE */
+.form-box {
+    width: 100%;
+    max-width: 650px; 
+    background-color: #15171c; 
+    padding: 4rem 3.5rem;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    margin-bottom: 5rem; /* 👈 THIS ADDS THE PERFECT GAP BELOW THE FORM BOX */
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+/* FIXED FULL-WIDTH INPUT FIELDS FORM BLOCK */
+.form-box input[type="text"], 
+.form-box input[type="email"] {
+    width: 100% !important; 
+    padding: 1rem !important;
+    background-color: #0b0c10 !important;
+    border: 1px solid #333333 !important;
+    color: #ffffff !important;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* ==========================================
+   8. BASIC SHARED FOOTER
+   ========================================== */
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    width: 100%;
+    background-color: #0b0c10;
+    /* border-top removed to match the clean background transition from the screenshot */
+}
+
+.social-icons {
+    display: flex;
+    gap: 3rem; 
+    list-style: none;
+}
+
+.social-icons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
